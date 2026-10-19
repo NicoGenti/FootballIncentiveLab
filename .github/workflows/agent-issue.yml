@@ -110,8 +110,7 @@ jobs:
       - name: Adopt the issue into the board if needed (PC-independent)
         run: |
           set -euo pipefail
-          PLAN=$(grep -rlE $'^gh_issue: '"${ISSUE}"$'
-?$' plan/draft plan/in-progress plan/qa 2>/dev/null | head -1 || true)
+          PLAN=$(grep -rlE $'^gh_issue: '"${ISSUE}"$'?$' plan/draft plan/in-progress plan/qa 2>/dev/null | head -1 || true)
           if [ -n "$PLAN" ]; then
             echo "piano gia' presente: $PLAN"
             exit 0
