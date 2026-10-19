@@ -28,3 +28,9 @@ footballincentivelab
 # OS
 .DS_Store
 Thumbs.db
+
+.env
+*.key
+*.pem
+auth.json.
+get-key.py
