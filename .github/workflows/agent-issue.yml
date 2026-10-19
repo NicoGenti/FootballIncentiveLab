@@ -104,7 +104,7 @@ jobs:
       - name: Adopt the issue into the board if needed (PC-independent)
         run: |
           set -euo pipefail
-          PLAN=$(grep -rlE $'^gh_issue: '"${ISSUE}"$'?$' plan/draft plan/in-progress plan/qa 2>/dev/null | head -1 || true)
+          PLAN=$(grep -rlE $'^gh_issue: '"${ISSUE}"$'?$' plan/draft plan/in-progress plan/qa 2>/dev/null | head -1 || true)
           if [ -n "$PLAN" ]; then
             echo "piano gia' presente: $PLAN"
             exit 0
@@ -149,8 +149,8 @@ jobs:
           echo "file=$PLAN" >> "$GITHUB_OUTPUT"
           test -n "$PLAN"
           echo -n "status nel file spostato: "; grep -m1 "^status:" "$PLAN"
-          go mod download
-          go test ./
+          pnpm install --frozen-lockfile
+          pnpm test
       - name: Mirror the board into the issue BEFORE committing (machine keys travel with the branch)
         run: |
           set -euo pipefail
