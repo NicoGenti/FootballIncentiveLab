@@ -62,15 +62,9 @@ jobs:
           set -euo pipefail
           npm i -g @opencode/cli@2.0.32
           opencode --version
-      - name: "Install pnpm first (setup-node needs it for `cache: pnpm`)"
-        uses: pnpm/action-setup@v4
-        with:
-          version: 12.10.1
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-          cache: pnpm
-          cache-dependency-path: pnpm-lock.yaml
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
@@ -155,6 +149,7 @@ jobs:
           echo "file=$PLAN" >> "$GITHUB_OUTPUT"
           test -n "$PLAN"
           echo -n "status nel file spostato: "; grep -m1 "^status:" "$PLAN"
+          go mod download
           go test ./...
       - name: Mirror the board into the issue BEFORE committing (machine keys travel with the branch)
         run: |
