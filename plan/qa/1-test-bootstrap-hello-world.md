@@ -1,7 +1,7 @@
 ---
 id: 1-test-bootstrap-hello-world
 title: Test bootstrap: hello world
-status: draft
+status: qa
 created: 2026-10-19
 updated: 2026-10-19
 owner: issue-bridge
@@ -9,7 +9,7 @@ executor: orchestrator
 gh_body_sha: 5090cebc8d939dbf7400ea87e3404d8d2e584c31d5d098e55d88711f878d2471
 gh_issue: 1
 gh_state: OPEN
-gh_synced_at: 2026-10-19T16:09:02Z
+gh_synced_at: 2026-10-19T16:46:50Z
 ---
 
 ## Goal
